@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BioStore — منشئ صفحات الروابط والمتاجر المصغرة">
+<title>BioStore — منشئ صفحات الروابط والمتاجر المصغرة</title>
+
+<!-- 1) الخطوط الاحترافية -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- 2) ملف الأنماط الخارجي -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     الهيدر
+     ============================================================ -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+      </div>
+      <div class="logo-text">Bio<span>Store</span></div>
+    </div>
+
+    <div class="header-actions">
+      <div class="plan-badge" id="planBadge">
+        <span class="dot"></span>
+        <span id="planText">الباقة المجانية</span>
+      </div>
+      <button class="btn btn-primary" id="upgradeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+        ترقية
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     الحاوية الرئيسية
+     ============================================================ -->
+<main class="app">
+
+  <!-- ================== المحرر ================== -->
+  <section class="editor">
+
+    <!-- قسم الهوية -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="section-title">هوية العلامة</div>
+          <div class="section-sub">الاسم، النبذة، والصورة الشخصية</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">اسم العلامة التجارية</label>
+        <input type="text" class="input" id="fBrand" placeholder="مثال: متجر نجوم" maxlength="40">
+      </div>
+
+      <div class="field">
+        <label class="label">النبذة التعريفية (Bio)</label>
+        <textarea class="textarea" id="fBio" placeholder="اكتب وصفاً قصيراً وجاذباً لعلامتك..." maxlength="200"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="label">رابط الصورة الشخصية (اختياري)</label>
+        <input type="url" class="input" id="fAvatar" placeholder="https://example.com/avatar.jpg" dir="ltr">
+      </div>
+    </div>
+
+    <!-- قسم التواصل الاجتماعي -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </div>
+        <div>
+          <div class="section-title">التواصل الاجتماعي</div>
+          <div class="section-sub">أدخل رابط كل منصة تريد إظهارها</div>
+        </div>
+      </div>
+
+      <div class="social-grid">
+        <div class="social-field">
+          <span class="si" style="color:#229ED9">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          </span>
+          <input type="url" id="fTelegram" placeholder="تليجرام" dir="ltr">
+        </div>
+        <div class="social-field">
+          <span class="si" style="color:#25D366">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0012.05 4a7.94 7.94 0 00-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 003.85 1h.01a7.94 7.94 0 007.94-7.93 7.87 7.87 0 00-2.4-5.65zM12.06 18.5a6.6 6.6 0 01-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 011.02-8.1 6.58 6.58 0 019.32.02 6.6 6.6 0 011.95 4.7 6.62 6.62 0 01-6.6 6.6z"/></svg>
+          </span>
+          <input type="url" id="fWhatsapp" placeholder="واتساب" dir="ltr">
+        </div>
+        <div class="social-field">
+          <span class="si" style="color:#fff">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 01-1.17-2.82h-3.3v12.4a2.5 2.5 0 11-2.5-2.5c.26 0 .5.04.74.11V9.6a6.3 6.3 0 00-.74-.04 5.9 5.9 0 105.9 5.9V9.1a7.5 7.5 0 004.3 1.36V7.1a4.3 4.3 0 01-3.23-1.28z"/></svg>
+          </span>
+          <input type="url" id="fTiktok" placeholder="تيك توك" dir="ltr">
+        </div>
+        <div class="social-field">
+          <span class="si" style="color:#E1306C">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 4.86a4.94 4.94 0 100 9.88 4.94 4.94 0 000-9.88zm0 8.14a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm6.3-8.34a1.16 1.16 0 11-2.32 0 1.16 1.16 0 012.32 0z"/></svg>
+          </span>
+          <input type="url" id="fInstagram" placeholder="إنستغرام" dir="ltr">
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم المنتجات -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <div>
+          <div class="section-title">المنتجات المصغرة</div>
+          <div class="section-sub">أضف منتجاتك مع السعر ورابط الشراء</div>
+        </div>
+      </div>
+
+      <div class="dyn-list" id="productsList"></div>
+
+      <button class="add-btn" id="addProductBtn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        إضافة منتج جديد
+      </button>
+    </div>
+
+    <!-- قسم الروابط الخارجية -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="section-title">الروابط الخارجية</div>
+          <div class="section-sub">روابط لموقعك أو قنواتك أو أي مصدر خارجي</div>
+        </div>
+      </div>
+
+      <div class="dyn-list" id="linksList"></div>
+
+      <button class="add-btn" id="addLinkBtn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        إضافة رابط جديد
+      </button>
+    </div>
+
+    <!-- قسم لون التمييز (Pro) -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+          </svg>
+        </div>
+        <div style="flex:1">
+          <div class="section-title" style="display:flex;align-items:center;gap:8px;">
+            لون التمييز
+            <span class="locked-tag" id="accentLock" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Pro
+            </span>
+          </div>
+          <div class="section-sub">خصص اللون الأساسي لصفحتك</div>
+        </div>
+      </div>
+
+      <div class="accent-row" id="accentRow"></div>
+    </div>
+
+  </section>
+
+  <!-- ================== المعاينة الحية ================== -->
+  <aside class="preview-wrap" id="previewAnchor">
+    <div class="preview-head">
+      <div class="preview-head-title">
+        <span class="live-dot"></span>
+        المعاينة الحية
+      </div>
+      <span class="preview-hint">تتحدث فورياً ✨</span>
+    </div>
+
+    <div class="phone-frame">
+      <div class="preview-page" id="previewPage">
+        <div class="pv-avatar" id="pvAvatar">؟</div>
+        <div class="pv-brand" id="pvBrand">اسم العلامة التجارية</div>
+        <div class="pv-bio" id="pvBio">نبذة قصيرة عن علامتك ستظهر هنا...</div>
+        <div class="pv-socials" id="pvSocials"></div>
+        <div class="pv-products" id="pvProducts"></div>
+        <div class="pv-links" id="pvLinks"></div>
+        <div class="pv-footer" id="pvFooter"></div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="btn btn-primary" id="copyBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        نسخ الكود
+      </button>
+      <button class="btn btn-ghost" id="downloadBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        تحميل الصفحة
+      </button>
+    </div>
+  </aside>
+
+</main>
+
+<!-- زر عائم للمعاينة (موبايل) -->
+<button class="fab-preview" id="fabPreview" aria-label="اذهب للمعاينة">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+</button>
+
+<!-- ============================================================
+     مودال الترقية
+     ============================================================ -->
+<div class="modal-backdrop" id="upgradeModal">
+  <div class="modal">
+    <button class="modal-close" id="closeModal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <h2>الباقة الاحترافية</h2>
+    <p class="subtitle">احصل على تجربة احترافية كاملة بدون علامة مائية</p>
+
+    <div class="price-tag">
+      <span class="amount">5</span>
+      <span class="currency">USDT</span>
+      <span class="note">دفعة واحدة — ترقية دائمة</span>
+    </div>
+
+    <ul class="features-list">
+      <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> إزالة العلامة المائية نهائياً</li>
+      <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> فتح خيار لون التمييز المخصص</li>
+      <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> تصدير احترافي كامل الميزات</li>
+      <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> دعم فني مباشر</li>
+    </ul>
+
+    <div class="wallet-box">
+      <div class="wallet-label">عنوان محفظة USDT (TRC20)</div>
+      <div class="wallet-address">
+        <code id="walletAddress">TGpwcWvbAMCQxjkkPg413uaESRVL2MV7X7</code>
+        <button class="copy-btn" id="copyWallet" title="نسخ العنوان">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:10px;font-weight:600;">
+        ⚠️ تأكد من استخدام شبكة TRC20 حصراً. أرسل 5 USDT بالضبط إلى العنوان أعلاه ثم أدخل رقم المعاملة (TXID) للتحقق.
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">رقم المعاملة (TXID)</label>
+      <input type="text" class="input" id="txidInput" placeholder="أدخل TXID المكوّن من 64 حرفاً" dir="ltr" maxlength="64">
+    </div>
+
+    <div class="verify-status" id="verifyStatus"></div>
+
+    <button class="btn btn-primary" id="verifyBtn" style="width:100%;margin-top:14px;padding:13px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      التحقق من الدفع
+    </button>
+  </div>
+</div>
+
+<!-- حاوية التوست -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- 3) ملف الجافاسكربت الخارجي -->
+<script src="app.js" defer></script>
+</body>
+</html>
